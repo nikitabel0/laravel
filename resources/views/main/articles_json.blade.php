@@ -3,8 +3,8 @@
 <table class="table">
   <thead>
     <tr>
-      <th scope="col">Date</th>
-      <th scope="col">Name</th>
+      <th scope="col">дата</th>
+      <th scope="col">наме</th>
       <th scope="col">Shortdesc</th>
       <th scope="col">Description</th>
       <th scope="col">Preview image</th>

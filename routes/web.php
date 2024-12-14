@@ -25,13 +25,19 @@ Route::post('/auth/authenticate', [AuthController::class, 'authenticate']);
 Route::get('/auth/logout', [AuthController::class, 'logout']);
 
 //Article
-Route::resource('article', ArticleController::class);
+Route::resource('article', ArticleController::class)->middleware('auth:sanctum');
+Route::get('article/{article}',[ArticleController::class, 'show'])->name('article.show')->middleware('checkclick');
 
 //Comment
-Route::post('/comment', [CommentController::class, 'store']);
-Route::get('/comment/{id}/edit', [CommentController::class, 'edit']);
-Route::post('/comment/{comment}/update', [CommentController::class, 'update']);
-Route::get('/comment/{comment}/delete', [CommentController::class, 'destroy']);
+Route::controller(CommentController::class)->prefix('/comment')->middleware('auth:sanctum')->group(function(){
+    Route::post('','store')->name('comment.store');
+    Route::get('/{id}/edit', 'edit')->name('comment.edit');
+    Route::post('/{comment}/update', 'update')->name('comment.update');
+    Route::get('/{id}/delete', 'delete')->name('comment.delete');
+    Route::get('/index','index')->name('comment.index');
+    Route::get('/{comment}/accept', 'accept')->name('comment.accept');
+    Route::get('/{comment}/reject', 'reject')->name('comment.reject');
+});
 
 
 Route::get('/', [MainController::class, 'index']);

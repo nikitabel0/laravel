@@ -27,6 +27,6 @@
     <label for="desc" class="form-label">Description</label>
     <textarea name="desc" class="form-control" id="desc">{{ $comment->desc }}"</textarea>
   </div>
-  <button type="submit" class="btn btn-primary">Update comment</button>
+  <button type="submit" class="btn btn-primary">допустим обновить</button>
 </form>
 @endsection
