@@ -27,14 +27,14 @@
       </li>
       @can('create')
       <li class="nav-item">
-          <a class="nav-link  " aria-current="page" href="/article/create">склепать статью</a>
+          <a class="nav-link @active('article/create')  " aria-current="page" href="/article/create">склепать статью</a>
       </li>
       <li class="nav-item">
-          <a class="nav-link " aria-current="page" href="/comment/index">все коменты</a>
+          <a class="nav-link @active('comment/index')" aria-current="page" href="/comment/index">все коменты</a>
       </li>
       @endcan
         <li class="nav-item">
-          <a class="nav-link " aria-current="page" href="/about">О нас</a>
+          <a class="nav-link @active('about') " aria-current="page" href="/about">О нас</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/contact">Контакты</a>
